@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: ../dashboard
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4000:3000"
+    env_file:
+      - .env
+    volumes:
+      - ../dashboard:/app
+      - /app/node_modules
+    depends_on:
+      - db
+      - cache
+    networks:
+      - dashboard_network
+
+  db:
+    image: postgres:17
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dashboard
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - dashboard_network
+
+  cache:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - dashboard_network
+
+volumes:
+  db_data:
+
+networks:
+  dashboard_network:
+    driver: bridge

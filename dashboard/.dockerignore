@@ -1,0 +1,40 @@
+.next
+.env
+.env*.local
+.DS_Store
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.pnpm-debug.log
+.pnpm-store
+
+# Next.js build output
+out
+
+# Optional: if you're using a custom build directory
+# .next/
+# build/
+
+# Optional: if you're using a custom cache directory
+.turbo
+.next/cache
+
+# Optional: if you're using Cypress
+cypress
+
+# Optional: if you're using Storybook
+.storybook
+
+# Optional: if you're using Playwright
+test-results
+
+# Optional: if you're using Vercel
+.vercel
+
+# Optional: if you're using a monorepo tool like Lerna or Nx
+lerna-debug.log
+nx-cache
+
+# Optional: if you're using a Docker volume for node_modules
+# node_modules/
