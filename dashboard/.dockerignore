@@ -38,3 +38,4 @@ nx-cache
 
 # Optional: if you're using a Docker volume for node_modules
 # node_modules/
+.next
